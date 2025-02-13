@@ -7,11 +7,8 @@ const JUMP_VELOCITY = 6.5
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_pressed("esc"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:

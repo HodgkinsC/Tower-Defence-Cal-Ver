@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://30qufw5s2dgm"]
+[gd_scene load_steps=6 format=3 uid="uid://30qufw5s2dgm"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bfmnv"]
 [ext_resource type="PackedScene" uid="uid://dd0h0tihr1ey5" path="res://Scenes/BuildingSystem.tscn" id="2_n6ie3"]
+[ext_resource type="PackedScene" uid="uid://cle45rrc2vm1b" path="res://Assets/Models/Pickaxe.glb" id="3_wdkpk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_if0ag"]
 radius = 0.3
@@ -31,6 +32,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57289, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 unique_name_in_owner = true
-cull_mask = 1048573
+fov = 90.0
+
+[node name="Pickaxe" parent="Head/Camera3D" instance=ExtResource("3_wdkpk")]
+transform = Transform3D(-0.026101, -0.00714042, 0.0962692, -0.0263873, 0.0964557, 0, -0.0928572, -0.0254028, -0.02706, 0.304, -0.338, -0.23)
 
 [node name="Building System" parent="." instance=ExtResource("2_n6ie3")]

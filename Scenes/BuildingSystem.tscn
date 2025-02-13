@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_564lj")
 
-[node name="Building UI" type="HBoxContainer" parent="."]
+[node name="Hotbar" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -29,17 +29,35 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 80
 
-[node name="Slot1" parent="Building UI" instance=ExtResource("1_jkvnc")]
+[node name="Slot1" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
 
-[node name="Slot2" parent="Building UI" instance=ExtResource("1_jkvnc")]
+[node name="Slot2" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
 
-[node name="Slot3" parent="Building UI" instance=ExtResource("1_jkvnc")]
+[node name="Slot3" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
 
-[node name="Slot4" parent="Building UI" instance=ExtResource("1_jkvnc")]
+[node name="Slot4" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
 
-[node name="Slot5" parent="Building UI" instance=ExtResource("1_jkvnc")]
+[node name="Slot5" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
+
+[node name="BuildingUI" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -580.0
+offset_right = 300.0
+offset_bottom = -130.0
+color = Color(0.116127, 0.116127, 0.116127, 0.815686)
+
+[node name="GridContainer" type="GridContainer" parent="BuildingUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 590.0
+offset_bottom = 440.0
+theme_override_constants/h_separation = 74
+theme_override_constants/v_separation = 80
+columns = 8
