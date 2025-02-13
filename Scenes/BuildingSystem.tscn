@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd0h0tihr1ey5"]
+
+[ext_resource type="Texture2D" uid="uid://dqe6baeddr6ik" path="res://icon.svg" id="1_ypl52"]
+
+[node name="Building System" type="Node"]
+
+[node name="Building UI" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -98.0
+offset_right = 288.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Slot1" type="Control" parent="Building UI"]
+layout_mode = 2
+
+[node name="BuildingIcon" type="TextureRect" parent="Building UI/Slot1"]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_ypl52")
+expand_mode = 1
+
+[node name="BuildingAmount" type="RichTextLabel" parent="Building UI/Slot1"]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 37.0
+offset_right = 142.0
+offset_bottom = 127.0
+scale = Vector2(0.37, 0.37)
+theme_override_font_sizes/normal_font_size = 64
+text = "00"
+
+[node name="Slot2" type="Control" parent="Building UI"]
+layout_mode = 2
+
+[node name="BuildingIcon" type="TextureRect" parent="Building UI/Slot2"]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_ypl52")
+expand_mode = 1
+
+[node name="BuildingAmount" type="RichTextLabel" parent="Building UI/Slot2"]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 37.0
+offset_right = 142.0
+offset_bottom = 127.0
+scale = Vector2(0.37, 0.37)
+theme_override_font_sizes/normal_font_size = 64
+text = "00"
