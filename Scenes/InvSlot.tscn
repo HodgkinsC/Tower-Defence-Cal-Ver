@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cds8u7fxi5whd"]
+
+[ext_resource type="Texture2D" uid="uid://dqe6baeddr6ik" path="res://icon.svg" id="1_cidux"]
+
+[node name="Slot1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BuildingIcon" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_cidux")
+expand_mode = 1
+
+[node name="BuildingAmount" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 37.0
+offset_right = 142.0
+offset_bottom = 127.0
+scale = Vector2(0.37, 0.37)
+theme_override_font_sizes/normal_font_size = 64
+text = "00"

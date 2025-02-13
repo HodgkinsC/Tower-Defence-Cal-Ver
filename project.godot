@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="hold on wait"
+config/name="Tower Defence"
 run/main_scene="res://Scenes/TestWorld.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"

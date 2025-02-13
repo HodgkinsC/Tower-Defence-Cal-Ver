@@ -1,58 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd0h0tihr1ey5"]
+[gd_scene load_steps=3 format=3 uid="uid://dd0h0tihr1ey5"]
 
-[ext_resource type="Texture2D" uid="uid://dqe6baeddr6ik" path="res://icon.svg" id="1_ypl52"]
+[ext_resource type="Script" path="res://Scripts/BuildingSystem.gd" id="1_564lj"]
+[ext_resource type="PackedScene" uid="uid://cds8u7fxi5whd" path="res://Scenes/InvSlot.tscn" id="1_jkvnc"]
 
-[node name="Building System" type="Node"]
-
-[node name="Building UI" type="HBoxContainer" parent="."]
+[node name="Building System" type="Control"]
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -288.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_564lj")
+
+[node name="Building UI" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
 offset_top = -98.0
-offset_right = 288.0
+offset_right = 192.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 80
 
-[node name="Slot1" type="Control" parent="Building UI"]
+[node name="Slot1" parent="Building UI" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
 
-[node name="BuildingIcon" type="TextureRect" parent="Building UI/Slot1"]
-layout_mode = 2
-offset_right = 64.0
-offset_bottom = 64.0
-texture = ExtResource("1_ypl52")
-expand_mode = 1
-
-[node name="BuildingAmount" type="RichTextLabel" parent="Building UI/Slot1"]
-layout_mode = 2
-offset_left = 36.0
-offset_top = 37.0
-offset_right = 142.0
-offset_bottom = 127.0
-scale = Vector2(0.37, 0.37)
-theme_override_font_sizes/normal_font_size = 64
-text = "00"
-
-[node name="Slot2" type="Control" parent="Building UI"]
+[node name="Slot2" parent="Building UI" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
 
-[node name="BuildingIcon" type="TextureRect" parent="Building UI/Slot2"]
+[node name="Slot3" parent="Building UI" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
-offset_right = 64.0
-offset_bottom = 64.0
-texture = ExtResource("1_ypl52")
-expand_mode = 1
 
-[node name="BuildingAmount" type="RichTextLabel" parent="Building UI/Slot2"]
+[node name="Slot4" parent="Building UI" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
-offset_left = 36.0
-offset_top = 37.0
-offset_right = 142.0
-offset_bottom = 127.0
-scale = Vector2(0.37, 0.37)
-theme_override_font_sizes/normal_font_size = 64
-text = "00"
+
+[node name="Slot5" parent="Building UI" instance=ExtResource("1_jkvnc")]
+layout_mode = 2
