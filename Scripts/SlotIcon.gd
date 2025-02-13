@@ -3,7 +3,7 @@ extends Control
 @export var Icon : Texture2D
 
 func _ready():
-	print("no epic :(")
+	print("Ready")
 	if Icon != null: 
 		$BuildingIcon.texture = Icon 
-		print("epic :)")
+		print("Icon changed")
