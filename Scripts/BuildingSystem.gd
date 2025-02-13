@@ -4,13 +4,22 @@ var selectedSlot = 1
 
 func _process(delta):
 	selectedslot()
+	viewmodel()
 	
+
+func viewmodel():
 	if selectedSlot == 1:
 		$"../Head/Camera3D/Pickaxe".visible = true
 	else:
 		$"../Head/Camera3D/Pickaxe".visible = false
-	
-	
+	if selectedSlot == 2:
+		$"../Head/Camera3D/Factory".visible = true
+	else:
+		$"../Head/Camera3D/Factory".visible = false
+	if selectedSlot == 3:
+		$"../Head/Camera3D/Tower".visible = true
+	else:
+		$"../Head/Camera3D/Tower".visible = false
 
 func selectedslot():
 	if Input.is_action_just_pressed("1"):

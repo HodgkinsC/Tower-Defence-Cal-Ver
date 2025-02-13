@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://30qufw5s2dgm"]
+[gd_scene load_steps=8 format=3 uid="uid://30qufw5s2dgm"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bfmnv"]
 [ext_resource type="PackedScene" uid="uid://dd0h0tihr1ey5" path="res://Scenes/BuildingSystem.tscn" id="2_n6ie3"]
+[ext_resource type="PackedScene" uid="uid://c7ewjymmc5hvp" path="res://Assets/Models/Factory.glb" id="3_ea2r4"]
 [ext_resource type="PackedScene" uid="uid://cle45rrc2vm1b" path="res://Assets/Models/Pickaxe.glb" id="3_wdkpk"]
+[ext_resource type="PackedScene" uid="uid://b5q868wdf0m08" path="res://Assets/Models/MagicTower.glb" id="5_ah6hi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_if0ag"]
 radius = 0.3
@@ -32,9 +34,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57289, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 unique_name_in_owner = true
-fov = 90.0
+fov = 80.0
 
 [node name="Pickaxe" parent="Head/Camera3D" instance=ExtResource("3_wdkpk")]
-transform = Transform3D(-0.026101, -0.00714042, 0.0962692, -0.0263873, 0.0964557, 0, -0.0928572, -0.0254028, -0.02706, 0.304, -0.338, -0.23)
+transform = Transform3D(-0.026101, -0.00714042, 0.0962692, -0.0263873, 0.0964557, 0, -0.0928572, -0.0254028, -0.02706, 0.259, -0.268, -0.23)
+visible = false
+
+[node name="Factory" parent="Head/Camera3D" instance=ExtResource("3_ea2r4")]
+transform = Transform3D(0.123626, -0.0338203, -0.0779279, 0.039581, 0.144684, 0, 0.0751659, -0.0205631, 0.128169, 0.334, -0.373, -0.301)
+visible = false
+
+[node name="Tower" parent="Head/Camera3D" instance=ExtResource("5_ah6hi")]
+transform = Transform3D(0.0811736, -0.0136039, 0.0474424, 0, 0.0913199, 0.0261855, -0.0493543, -0.0223745, 0.0780291, 0.199, -0.193, -0.195)
+visible = false
 
 [node name="Building System" parent="." instance=ExtResource("2_n6ie3")]
