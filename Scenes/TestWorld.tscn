@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp0ojo7js5opt"]
+
+[ext_resource type="PackedScene" uid="uid://30qufw5s2dgm" path="res://Scenes/Player.tscn" id="1_e8ct5"]
+[ext_resource type="Texture2D" uid="uid://osjfsochydqb" path="res://Assets/lonely_road_afternoon_puresky_4k.exr" id="1_h277f"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1m47h"]
+panorama = ExtResource("1_h277f")
+
+[sub_resource type="Sky" id="Sky_030xx"]
+sky_material = SubResource("PanoramaSkyMaterial_1m47h")
+
+[sub_resource type="Environment" id="Environment_1jvqf"]
+background_mode = 2
+sky = SubResource("Sky_030xx")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Test world" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 0.784
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1jvqf")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5819, -2)
+use_collision = true
+size = Vector3(10, 0.918707, 11)
+
+[node name="Player" parent="." instance=ExtResource("1_e8ct5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.827752, 0)
