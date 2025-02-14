@@ -19,6 +19,10 @@ func _process(delta):
 			var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
 			add_child(factoryinst)
 			factoryinst.global_position = collPoint
+		if selectedSlot == 3:
+			var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
+			add_child(towerinst)
+			towerinst.global_position = collPoint
 	
 	$"../Preview".position = Vector3(-10,0,0)
 
@@ -37,6 +41,10 @@ func viewmodel():
 		$"../Head/Camera3D/Tower".visible = false
 
 func selectedslot():
+	if Input.is_action_just_pressed("MWU"):
+		selectedSlot -= 1
+	if Input.is_action_just_pressed("MWD"):
+		selectedSlot += 1
 	if Input.is_action_just_pressed("1"):
 		selectedSlot = 1
 	if Input.is_action_just_pressed("2"):

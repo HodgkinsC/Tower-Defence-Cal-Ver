@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cp0ojo7js5opt"]
+[gd_scene load_steps=20 format=3 uid="uid://cp0ojo7js5opt"]
 
 [ext_resource type="PackedScene" uid="uid://30qufw5s2dgm" path="res://Scenes/Player.tscn" id="1_e8ct5"]
-[ext_resource type="PackedScene" uid="uid://c4h6kyujcax0o" path="res://Scenes/Preview.tscn" id="2_u6rr2"]
 [ext_resource type="PackedScene" uid="uid://0d882ktlxamd" path="res://Assets/Models/map.glb" id="3_fknb8"]
 [ext_resource type="Texture2D" uid="uid://ikm8obs5l72m" path="res://Assets/Textures/map_rock_05_diff_4k.jpg" id="4_r3fv4"]
 [ext_resource type="Texture2D" uid="uid://cfn7hf5s0s0lv" path="res://Assets/Textures/map_rock_05_disp_4k-rock_05_rough_4k.png" id="5_a52vl"]
@@ -141,31 +140,28 @@ size = Vector3(10, 0.918707, 11)
 [node name="Player" parent="." instance=ExtResource("1_e8ct5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.827752, 0)
 
-[node name="Preview" parent="." instance=ExtResource("2_u6rr2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.796149, -0.122547, -3.74452)
+[node name="Map" type="StaticBody3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="map" parent="StaticBody3D" instance=ExtResource("3_fknb8")]
+[node name="map" parent="Map" instance=ExtResource("3_fknb8")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.488608, 2.421, 0.641453)
 
-[node name="Node3D" type="Node3D" parent="StaticBody3D"]
+[node name="Node3D" type="Node3D" parent="Map"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 
-[node name="Plane" type="MeshInstance3D" parent="StaticBody3D/Node3D"]
+[node name="Plane" type="MeshInstance3D" parent="Map/Node3D"]
 transform = Transform3D(-0.23345, 0, -12.4008, 0, 1, 0, 11.6983, 0, -0.247468, 0, -0.554303, 0)
 mesh = SubResource("ArrayMesh_j6av2")
 skeleton = NodePath("")
 
-[node name="Plane_009" type="MeshInstance3D" parent="StaticBody3D/Node3D"]
+[node name="Plane_009" type="MeshInstance3D" parent="Map/Node3D"]
 transform = Transform3D(7.2892, 0, 0, 0, 1, 0, 0, 0, 7.22257, -14.5624, 0, -14.3923)
 mesh = SubResource("ArrayMesh_au584")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map"]
 transform = Transform3D(-1.16725, 0, -62.004, 0, 5, 0, 58.4917, 0, -1.23734, 0, -0.355545, 0)
 shape = SubResource("ConcavePolygonShape3D_xix0t")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map"]
 transform = Transform3D(36.446, 0, 0, 0, 5, 0, 0, 0, 36.1129, -72.8121, 2.62132, -71.9616)
 shape = SubResource("ConcavePolygonShape3D_2205q")
