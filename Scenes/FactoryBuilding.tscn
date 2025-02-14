@@ -7,6 +7,7 @@ size = Vector3(2.01422, 1.58447, 1.47064)
 
 [node name="FactoryBuilding" type="StaticBody3D" groups=["Building"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+input_ray_pickable = false
 
 [node name="Factory" parent="." instance=ExtResource("1_uve5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, -0.624343, 0.442)

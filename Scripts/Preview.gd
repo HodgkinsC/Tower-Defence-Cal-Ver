@@ -4,6 +4,9 @@ func _process(delta):
 	if GlobalVariables.itemslot == 2:
 		$FactoryBuilding.visible = true
 		$TowerBuilding.visible = false
-	if GlobalVariables.itemslot == 3:
+	elif GlobalVariables.itemslot == 3:
 		$FactoryBuilding.visible = false
 		$TowerBuilding.visible = true
+	else:
+		$FactoryBuilding.visible = false
+		$TowerBuilding.visible = false

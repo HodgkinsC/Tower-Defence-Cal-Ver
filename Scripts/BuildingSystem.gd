@@ -24,7 +24,6 @@ func _process(delta):
 			add_child(towerinst)
 			towerinst.global_position = collPoint
 	
-	$Preview.position = Vector3(-10,0,0)
 
 func viewmodel():
 	if selectedSlot == 1:
