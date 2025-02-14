@@ -5,7 +5,9 @@ var selectedSlot = 1
 func _process(delta):
 	selectedslot()
 	viewmodel()
-	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if selectedSlot == 1:
+			pass
 
 func viewmodel():
 	if selectedSlot == 1:
@@ -32,4 +34,5 @@ func selectedslot():
 		selectedSlot = 4
 	if Input.is_action_just_pressed("5"):
 		selectedSlot = 5
+	$SlotSelect.global_position.x = $Hotbar/Slot1.global_position.x + (80 * selectedSlot) - 80
 	$BuildingUI.visible = !GlobalVariables.moustog

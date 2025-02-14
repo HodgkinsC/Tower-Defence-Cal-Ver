@@ -1,29 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp0ojo7js5opt"]
+[gd_scene load_steps=5 format=3 uid="uid://cp0ojo7js5opt"]
 
 [ext_resource type="PackedScene" uid="uid://30qufw5s2dgm" path="res://Scenes/Player.tscn" id="1_e8ct5"]
-[ext_resource type="Texture2D" uid="uid://osjfsochydqb" path="res://Assets/lonely_road_afternoon_puresky_4k.exr" id="1_h277f"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1m47h"]
-panorama = ExtResource("1_h277f")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsiky"]
+sky_top_color = Color(0.392613, 0.610629, 0.838479, 1)
+sky_horizon_color = Color(0.680208, 0.764949, 0.868858, 1)
+ground_bottom_color = Color(0.32822, 0.449166, 0.636952, 1)
+ground_horizon_color = Color(0.680208, 0.764949, 0.868858, 1)
 
-[sub_resource type="Sky" id="Sky_030xx"]
-sky_material = SubResource("PanoramaSkyMaterial_1m47h")
+[sub_resource type="Sky" id="Sky_nltek"]
+sky_material = SubResource("ProceduralSkyMaterial_hsiky")
 
-[sub_resource type="Environment" id="Environment_1jvqf"]
+[sub_resource type="Environment" id="Environment_vq005"]
 background_mode = 2
-sky = SubResource("Sky_030xx")
+sky = SubResource("Sky_nltek")
 tonemap_mode = 2
 glow_enabled = true
 
 [node name="Test world" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vq005")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.82708, 0.486778, -0.281042, 0, 0.5, 0.866026, 0.562083, -0.716273, 0.41354, 0, 0, 0)
 light_energy = 0.784
 shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1jvqf")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5819, -2)

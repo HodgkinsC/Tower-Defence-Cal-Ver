@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd0h0tihr1ey5"]
+[gd_scene load_steps=6 format=3 uid="uid://dd0h0tihr1ey5"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingSystem.gd" id="1_564lj"]
 [ext_resource type="PackedScene" uid="uid://cds8u7fxi5whd" path="res://Scenes/InvSlot.tscn" id="1_jkvnc"]
+[ext_resource type="Texture2D" uid="uid://leo7oyi40mas" path="res://Assets/Textures/SelectOutline.png" id="3_f3nst"]
 [ext_resource type="Texture2D" uid="uid://c56xavx8c6qmk" path="res://Assets/Textures/TEMP ICON.png" id="3_odoeh"]
+[ext_resource type="Texture2D" uid="uid://dr1eq0pbqu6av" path="res://Assets/Textures/TEMP ICON 2.png" id="4_m5q3m"]
 
 [node name="Building System" type="Control"]
 layout_mode = 3
@@ -14,6 +16,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_564lj")
+
+[node name="SlotSelect" parent="." instance=ExtResource("1_jkvnc")]
+modulate = Color(1, 1, 0, 1)
+self_modulate = Color(0.883333, 1, 0, 1)
+layout_mode = 2
+offset_left = -192.0
+offset_top = -98.0
+offset_right = -192.0
+offset_bottom = -34.0
+Icon = ExtResource("3_f3nst")
+
+[node name="BuildingIcon" parent="SlotSelect" index="0"]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 69.0
+offset_bottom = 69.0
+texture = ExtResource("3_f3nst")
 
 [node name="Hotbar" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -36,6 +55,7 @@ Icon = ExtResource("3_odoeh")
 
 [node name="Slot2" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
+Icon = ExtResource("4_m5q3m")
 
 [node name="Slot3" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
@@ -63,3 +83,5 @@ offset_bottom = 440.0
 theme_override_constants/h_separation = 74
 theme_override_constants/v_separation = 80
 columns = 8
+
+[editable path="SlotSelect"]
