@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcte0"]
 size = Vector3(2.01422, 1.58447, 1.47064)
 
-[node name="FactoryBuilding" type="StaticBody3D"]
+[node name="FactoryBuilding" type="StaticBody3D" groups=["Building"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Factory" parent="." instance=ExtResource("1_uve5k")]

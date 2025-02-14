@@ -9,12 +9,12 @@ func _process(delta):
 	$"../Head/Camera3D/BuildCast".force_raycast_update()
 	var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
 	$"../Preview".global_position = collPoint
-	print($"../Preview".position)
 	if Input.is_action_just_pressed("click"):
 		if selectedSlot == 1:
 			var coll = $"../Head/Camera3D/BuildCast".get_collider()
-			if coll.name == "FactoryBuilding":
-				coll.queue_free()
+			if coll != null:
+				if coll.is_in_group("Building"):
+					coll.queue_free()
 		if selectedSlot == 2:
 			var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
 			add_child(factoryinst)

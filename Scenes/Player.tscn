@@ -20,7 +20,7 @@ floor_stop_on_slope = false
 script = ExtResource("1_bfmnv")
 
 [node name="Preview" parent="." instance=ExtResource("2_nlttb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.30037, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -2.61)
 
 [node name="PlayerColl" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_if0ag")
