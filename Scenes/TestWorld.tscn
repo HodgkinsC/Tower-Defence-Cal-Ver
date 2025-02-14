@@ -34,3 +34,7 @@ size = Vector3(10, 0.918707, 11)
 
 [node name="Player" parent="." instance=ExtResource("1_e8ct5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.827752, 0)
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="Factories" type="Node3D" parent="Buildings"]

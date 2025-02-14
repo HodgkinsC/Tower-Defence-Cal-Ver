@@ -1,13 +1,26 @@
 extends Control
 
-var selectedSlot = 1
+var selectedSlot = GlobalVariables.itemslot
 
 func _process(delta):
 	selectedslot()
+	GlobalVariables.itemslot = selectedSlot
 	viewmodel()
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	$"../Head/Camera3D/BuildCast".force_raycast_update()
+	var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
+	$"../Preview".global_position = collPoint
+	print($"../Preview".position)
+	if Input.is_action_just_pressed("click"):
 		if selectedSlot == 1:
-			pass
+			var coll = $"../Head/Camera3D/BuildCast".get_collider()
+			if coll.name == "FactoryBuilding":
+				coll.queue_free()
+		if selectedSlot == 2:
+			var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
+			add_child(factoryinst)
+			factoryinst.global_position = collPoint
+	
+	$"../Preview".position = Vector3(-10,0,0)
 
 func viewmodel():
 	if selectedSlot == 1:
@@ -36,3 +49,5 @@ func selectedslot():
 		selectedSlot = 5
 	$SlotSelect.global_position.x = $Hotbar/Slot1.global_position.x + (80 * selectedSlot) - 80
 	$BuildingUI.visible = !GlobalVariables.moustog
+
+

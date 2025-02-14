@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4h6kyujcax0o"]
+
+[ext_resource type="PackedScene" uid="uid://luvutvhgsxyd" path="res://Scenes/FactoryBuilding.tscn" id="1_jvcoi"]
+[ext_resource type="Script" path="res://Scripts/Preview.gd" id="1_mfenj"]
+
+[node name="Preview" type="Node3D"]
+script = ExtResource("1_mfenj")
+
+[node name="FactoryBuilding" parent="." instance=ExtResource("1_jvcoi")]
