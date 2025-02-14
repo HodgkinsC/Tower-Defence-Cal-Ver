@@ -8,7 +8,7 @@ func _process(delta):
 	viewmodel()
 	$"../Head/Camera3D/BuildCast".force_raycast_update()
 	var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
-	$"../Preview".global_position = collPoint
+	$Preview.global_position = collPoint
 	if Input.is_action_just_pressed("click"):
 		if selectedSlot == 1:
 			var coll = $"../Head/Camera3D/BuildCast".get_collider()
@@ -24,7 +24,7 @@ func _process(delta):
 			add_child(towerinst)
 			towerinst.global_position = collPoint
 	
-	$"../Preview".position = Vector3(-10,0,0)
+	$Preview.position = Vector3(-10,0,0)
 
 func viewmodel():
 	if selectedSlot == 1:

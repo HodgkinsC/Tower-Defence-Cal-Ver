@@ -19,9 +19,6 @@ height = 1.75
 floor_stop_on_slope = false
 script = ExtResource("1_bfmnv")
 
-[node name="Preview" parent="." instance=ExtResource("2_nlttb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -2.61)
-
 [node name="PlayerColl" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_if0ag")
 
@@ -57,3 +54,6 @@ target_position = Vector3(0, 0, -7)
 hit_back_faces = false
 
 [node name="Building System" parent="." instance=ExtResource("2_n6ie3")]
+
+[node name="Preview" parent="Building System" instance=ExtResource("2_nlttb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -2.61)
