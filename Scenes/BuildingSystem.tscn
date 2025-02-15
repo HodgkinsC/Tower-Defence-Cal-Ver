@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd0h0tihr1ey5"]
+[gd_scene load_steps=11 format=3 uid="uid://dd0h0tihr1ey5"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingSystem.gd" id="1_564lj"]
 [ext_resource type="PackedScene" uid="uid://cds8u7fxi5whd" path="res://Scenes/InvSlot.tscn" id="1_jkvnc"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cob2vnse1ncgo" path="res://Assets/Textures/FactoryIcon.png" id="5_pikro"]
 [ext_resource type="Texture2D" uid="uid://lqbb6bxi6wip" path="res://Assets/Textures/TowerIcon.png" id="6_c6xau"]
 [ext_resource type="Script" path="res://Scripts/MineInfo.gd" id="7_b7e3q"]
+[ext_resource type="Texture2D" uid="uid://sl0r50jcyggq" path="res://Assets/Textures/OTHERSIDE pause menu.png" id="7_uw3ym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlgs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_13bfl"]
 font_size = 20
@@ -107,6 +110,22 @@ offset_right = 310.0
 offset_bottom = 55.0
 text = "TEMP WOOD AMOUNT: "
 
+[node name="OthersidePauseMenu" type="Sprite2D" parent="BuildingUI"]
+position = Vector2(300, 270)
+texture = ExtResource("7_uw3ym")
+
+[node name="Button" type="Button" parent="BuildingUI"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 370.0
+offset_right = 410.0
+offset_bottom = 420.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlgs")
+
 [node name="MineInfo" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0
@@ -142,5 +161,7 @@ offset_top = 30.0
 offset_right = 175.0
 offset_bottom = 45.0
 color = Color(0.0333333, 1, 0, 1)
+
+[connection signal="pressed" from="BuildingUI/Button" to="." method="_on_button_pressed"]
 
 [editable path="SlotSelect"]

@@ -3,6 +3,7 @@ extends Control
 var selectedSlot = GlobalVariables.itemslot
 
 func _process(delta):
+	
 	selectedslot()
 	GlobalVariables.itemslot = selectedSlot
 	viewmodel()
@@ -86,4 +87,5 @@ func selectedslot():
 	$SlotSelect.global_position.x = $Hotbar/Slot1.global_position.x + (80 * selectedSlot) - 80
 	$BuildingUI.visible = !GlobalVariables.moustog
 
-
+func _on_button_pressed():
+	get_tree().quit()
