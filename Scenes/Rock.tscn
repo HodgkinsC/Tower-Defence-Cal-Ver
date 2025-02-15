@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccucfu33wxapr"]
 
-[ext_resource type="Script" path="res://Scripts/Rock.gd" id="1_70sl1"]
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_70sl1"]
 [ext_resource type="PackedScene" uid="uid://cjnb24e41esyt" path="res://Assets/Models/Rock.glb" id="1_a3nm8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_skbf0"]
 radius = 0.430541
 height = 1.85547
 
-[node name="Rock" type="StaticBody3D" groups=["Rock"]]
+[node name="Rock" type="StaticBody3D" groups=["Mineable", "Rock"]]
 script = ExtResource("1_70sl1")
 
 [node name="Model" parent="." instance=ExtResource("1_a3nm8")]

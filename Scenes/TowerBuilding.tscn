@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2pflmmed3brg"]
+[gd_scene load_steps=4 format=3 uid="uid://c2pflmmed3brg"]
 
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_5san3"]
 [ext_resource type="PackedScene" uid="uid://b5q868wdf0m08" path="res://Assets/Models/MagicTower.glb" id="1_c1hob"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcte0"]
 size = Vector3(1.00783, 1.90991, 1.02953)
 
-[node name="TowerBuilding" type="StaticBody3D" groups=["Building"]]
+[node name="TowerBuilding" type="StaticBody3D" groups=["Building", "Mineable", "Tower"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 input_ray_pickable = false
+script = ExtResource("1_5san3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00600448, 0.942613, -0.0143659)

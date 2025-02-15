@@ -11,17 +11,10 @@ func _process(delta):
 	$Preview.global_position = collPoint
 	var coll = $"../Head/Camera3D/BuildCast".get_collider()
 	if coll != null:
-		
-		if coll.is_in_group("Rock"):
-			$MineInfo/ItemName.text = "Rock"
-			$MineInfo.visible = true
-		else:
-			$MineInfo.visible = false
+		iteminfo(coll)
 		if Input.is_action_just_pressed("click"):
 			if selectedSlot == 1:
-				if coll.is_in_group("Building"):
-					coll.queue_free()
-				if coll.is_in_group("Rock"):
+				if coll.is_in_group("Mineable"):
 					coll.health -= 1
 					if coll.health <= 0:
 						coll.queue_free()
@@ -34,6 +27,20 @@ func _process(delta):
 				add_child(towerinst)
 				towerinst.global_position = collPoint
 	
+
+func iteminfo(coll):
+	if coll.is_in_group("Mineable"):
+		var hpmod = $MineInfo/HealthRectBG.size.x / coll.maxhp
+		$MineInfo/HealthRect.size.x = $MineInfo/HealthRectBG.size.x - hpmod * (coll.maxhp - coll.health)
+		$MineInfo.visible = true
+	if coll.is_in_group("Rock"):
+		$MineInfo/ItemName.text = "Rock"
+	elif coll.is_in_group("Factory"):
+		$MineInfo/ItemName.text = "Factory"
+	elif coll.is_in_group("Tower"):
+		$MineInfo/ItemName.text = "Tower"
+	else:
+		$MineInfo.visible = false
 
 func viewmodel():
 	if selectedSlot == 1:

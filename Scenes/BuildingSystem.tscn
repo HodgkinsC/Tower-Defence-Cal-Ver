@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd0h0tihr1ey5"]
+[gd_scene load_steps=9 format=3 uid="uid://dd0h0tihr1ey5"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingSystem.gd" id="1_564lj"]
 [ext_resource type="PackedScene" uid="uid://cds8u7fxi5whd" path="res://Scenes/InvSlot.tscn" id="1_jkvnc"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://degxag2umiq0a" path="res://Assets/Textures/PickaxeIcon.png" id="4_00pq7"]
 [ext_resource type="Texture2D" uid="uid://cob2vnse1ncgo" path="res://Assets/Textures/FactoryIcon.png" id="5_pikro"]
 [ext_resource type="Texture2D" uid="uid://lqbb6bxi6wip" path="res://Assets/Textures/TowerIcon.png" id="6_c6xau"]
+[ext_resource type="Script" path="res://Scripts/MineInfo.gd" id="7_b7e3q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_13bfl"]
-font_size = 30
+font_size = 20
 font_color = Color(0.912289, 0.912289, 0.912289, 1)
 
 [node name="Building System" type="Control"]
@@ -93,10 +94,11 @@ columns = 8
 [node name="MineInfo" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -100.0
-offset_top = -640.0
+offset_top = -174.535
 offset_right = 100.0
-offset_bottom = -590.0
+offset_bottom = -124.535
 color = Color(0.193154, 0.193154, 0.193154, 1)
+script = ExtResource("7_b7e3q")
 
 [node name="ItemName" type="Label" parent="MineInfo"]
 layout_mode = 0
@@ -107,5 +109,21 @@ offset_bottom = 42.69
 text = "[Item Name]"
 label_settings = SubResource("LabelSettings_13bfl")
 horizontal_alignment = 1
+
+[node name="HealthRectBG" type="ColorRect" parent="MineInfo"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 30.0
+offset_right = 175.0
+offset_bottom = 44.9999
+color = Color(1, 0, 0, 1)
+
+[node name="HealthRect" type="ColorRect" parent="MineInfo"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 30.0
+offset_right = 175.0
+offset_bottom = 45.0
+color = Color(0.0333333, 1, 0, 1)
 
 [editable path="SlotSelect"]
