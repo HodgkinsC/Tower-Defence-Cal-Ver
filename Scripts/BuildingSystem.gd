@@ -70,9 +70,9 @@ func viewmodel():
 		$"../Head/Camera3D/Tower".visible = false
 
 func selectedslot():
-	if Input.is_action_just_pressed("MWU"):
+	if Input.is_action_just_pressed("MWU") and !(selectedSlot <= 1):
 		selectedSlot -= 1
-	if Input.is_action_just_pressed("MWD"):
+	if Input.is_action_just_pressed("MWD") and !(selectedSlot >= 5):
 		selectedSlot += 1
 	if Input.is_action_just_pressed("1"):
 		selectedSlot = 1
