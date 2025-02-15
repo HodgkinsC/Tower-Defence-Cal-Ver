@@ -15,9 +15,10 @@ height = 1.75
 radius = 0.3
 height = 1.75
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("cam")]
 floor_stop_on_slope = false
 script = ExtResource("1_bfmnv")
+cam = NodePath("Head/Camera3D")
 
 [node name="PlayerColl" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_if0ag")

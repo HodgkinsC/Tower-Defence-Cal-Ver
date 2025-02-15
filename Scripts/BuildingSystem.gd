@@ -3,10 +3,11 @@ extends Control
 var selectedSlot = GlobalVariables.itemslot
 
 func _process(delta):
+	selectedslot()
+	GlobalVariables.itemslot = selectedSlot
 	if $"..".plrid == GlobalVariables.activeplr:
 		$BuildingUI.visible = true
-		selectedslot()
-		GlobalVariables.itemslot = selectedSlot
+		$BuildingUI.visible = !GlobalVariables.moustog
 		viewmodel()
 		$"../Head/Camera3D/BuildCast".force_raycast_update()
 		var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
@@ -88,7 +89,6 @@ func selectedslot():
 	if Input.is_action_just_pressed("5"):
 		selectedSlot = 5
 	$SlotSelect.global_position.x = $Hotbar/Slot1.global_position.x + (80 * selectedSlot) - 80
-	$BuildingUI.visible = !GlobalVariables.moustog
 
 func _on_button_pressed():
 	get_tree().quit()

@@ -9,14 +9,15 @@ const JUMP_VELOCITY = 6.5
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@export var cam : Camera3D
 
 func _unhandled_input(event):
-	
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			rotate_y(-event.relative.x * look_sensitivity)
-			%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
-			%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	if plrid == GlobalVariables.activeplr:
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			if event is InputEventMouseMotion:
+				rotate_y(-event.relative.x * look_sensitivity)
+				%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
+				%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta):
 
@@ -24,6 +25,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 		
 	if plrid == GlobalVariables.activeplr:
+		cam.current = true
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 
@@ -35,5 +37,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
+	else:
+		cam.current = false
 
 	move_and_slide()
