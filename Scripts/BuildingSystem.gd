@@ -9,20 +9,30 @@ func _process(delta):
 	$"../Head/Camera3D/BuildCast".force_raycast_update()
 	var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
 	$Preview.global_position = collPoint
-	if Input.is_action_just_pressed("click"):
-		if selectedSlot == 1:
-			var coll = $"../Head/Camera3D/BuildCast".get_collider()
-			if coll != null:
+	var coll = $"../Head/Camera3D/BuildCast".get_collider()
+	if coll != null:
+		
+		if coll.is_in_group("Rock"):
+			$MineInfo/ItemName.text = "Rock"
+			$MineInfo.visible = true
+		else:
+			$MineInfo.visible = false
+		if Input.is_action_just_pressed("click"):
+			if selectedSlot == 1:
 				if coll.is_in_group("Building"):
 					coll.queue_free()
-		if selectedSlot == 2:
-			var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
-			add_child(factoryinst)
-			factoryinst.global_position = collPoint
-		if selectedSlot == 3:
-			var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
-			add_child(towerinst)
-			towerinst.global_position = collPoint
+				if coll.is_in_group("Rock"):
+					coll.health -= 1
+					if coll.health <= 0:
+						coll.queue_free()
+			if selectedSlot == 2:
+				var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
+				add_child(factoryinst)
+				factoryinst.global_position = collPoint
+			if selectedSlot == 3:
+				var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
+				add_child(towerinst)
+				towerinst.global_position = collPoint
 	
 
 func viewmodel():
