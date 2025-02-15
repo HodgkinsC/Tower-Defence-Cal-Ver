@@ -4,6 +4,11 @@ var moustog = false
 
 var itemslot : int = 1
 
+var woodamt : int = 0
+var rockamt : int = 0
+var factamt : int = 0
+var toweamt : int = 0
+
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("buildmenu"):
 		moustog = !moustog

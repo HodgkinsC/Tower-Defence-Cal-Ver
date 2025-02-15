@@ -11,12 +11,17 @@ func _process(delta):
 	$Preview.global_position = collPoint
 	var coll = $"../Head/Camera3D/BuildCast".get_collider()
 	if coll != null:
+		$Preview.visible = true
 		iteminfo(coll)
 		if Input.is_action_just_pressed("click"):
 			if selectedSlot == 1:
 				if coll.is_in_group("Mineable"):
 					coll.health -= 1
 					if coll.health <= 0:
+						if coll.is_in_group("Rock"): GlobalVariables.rockamt += 1
+						if coll.is_in_group("Tree"): GlobalVariables.woodamt += 1
+						if coll.is_in_group("Factory"): GlobalVariables.factamt += 1
+						if coll.is_in_group("Tower"): GlobalVariables.toweamt += 1
 						coll.queue_free()
 			if selectedSlot == 2:
 				var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
@@ -26,7 +31,12 @@ func _process(delta):
 				var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
 				add_child(towerinst)
 				towerinst.global_position = collPoint
+	else:
+		$MineInfo.visible = false
+		$Preview.visible = false
 	
+	$BuildingUI/Rock.text = "TEMP ROCK AMOUNT: " + str(GlobalVariables.rockamt)
+	$BuildingUI/Wood.text = "TEMP WOOD AMOUNT: " + str(GlobalVariables.woodamt)
 
 func iteminfo(coll):
 	if coll.is_in_group("Mineable"):
@@ -35,6 +45,8 @@ func iteminfo(coll):
 		$MineInfo.visible = true
 	if coll.is_in_group("Rock"):
 		$MineInfo/ItemName.text = "Rock"
+	elif coll.is_in_group("Tree"):
+		$MineInfo/ItemName.text = "Tree"
 	elif coll.is_in_group("Factory"):
 		$MineInfo/ItemName.text = "Factory"
 	elif coll.is_in_group("Tower"):

@@ -91,7 +91,24 @@ theme_override_constants/h_separation = 74
 theme_override_constants/v_separation = 80
 columns = 8
 
+[node name="Rock" type="RichTextLabel" parent="BuildingUI"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 35.0
+text = "TEMP ROCK AMOUNT: "
+
+[node name="Wood" type="RichTextLabel" parent="BuildingUI"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 310.0
+offset_bottom = 55.0
+text = "TEMP WOOD AMOUNT: "
+
 [node name="MineInfo" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -100.0
 offset_top = -174.535
