@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://b5ghs506tnfsy"]
+[gd_scene load_steps=5 format=3 uid="uid://b5ghs506tnfsy"]
 
-[node name="ZombieTank" type="CharacterBody3D"]
+[ext_resource type="PackedScene" uid="uid://d1icx26oh5g1i" path="res://Assets/Models/ArmedTank.glb" id="1_6kyll"]
+[ext_resource type="Script" path="res://Scripts/ZombieTank.gd" id="1_kf0ud"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_750sb"]
+size = Vector3(1.14478, 0.651306, 1.95776)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5whp"]
+radius = 0.292773
+height = 1.42958
+
+[node name="ZombieTank" type="CharacterBody3D" groups=["enemies", "enemy"]]
+script = ExtResource("1_kf0ud")
+
+[node name="ArmedTank" parent="." instance=ExtResource("1_6kyll")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0436434, -1.19209e-07, 0.0700066)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0355225, 0.354828, 0.00769043)
+shape = SubResource("BoxShape3D_750sb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0355225, 0.740944, 0.00769043)
+shape = SubResource("CapsuleShape3D_w5whp")

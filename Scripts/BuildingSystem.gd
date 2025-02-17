@@ -48,8 +48,8 @@ func _process(delta):
 			$Preview.visible = false
 	else:
 		self.visible = false
-	$BuildingUI/Rock.text = "TEMP ROCK AMOUNT: " + str(GlobalVariables.rockamt)
-	$BuildingUI/Wood.text = "TEMP WOOD AMOUNT: " + str(GlobalVariables.woodamt)
+	$Rock.text = "TEMP ROCK AMOUNT: " + str(GlobalVariables.rockamt)
+	$Wood.text = "TEMP WOOD AMOUNT: " + str(GlobalVariables.woodamt)
 
 func iteminfo(coll):
 	if coll.is_in_group("Mineable"):
@@ -82,6 +82,9 @@ func viewmodel():
 		$"../Head/Camera3D/Tower".visible = false
 
 func selectedslot():
+	if Input.is_action_just_pressed("esc"): GlobalVariables.moustog = !GlobalVariables.moustog
+	if GlobalVariables.moustog: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else: Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.is_action_just_pressed("MWU") and selectedSlot >= 2:
 		selectedSlot -= 1
 	if Input.is_action_just_pressed("MWD") and selectedSlot <= 4:
@@ -98,6 +101,10 @@ func selectedslot():
 		selectedSlot = 5
 	$SlotSelect.global_position.x = $Hotbar/Slot1.global_position.x + (80 * selectedSlot) - 80
 	$BuildingUI.visible = !GlobalVariables.moustog
+	get_tree().paused = !GlobalVariables.moustog
 
 func _on_button_pressed():
 	get_tree().quit()
+
+func _on_button_2_pressed() -> void:
+	GlobalVariables.moustog = !GlobalVariables.moustog

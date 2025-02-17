@@ -1,9 +1,8 @@
 extends CharacterBody3D
 
 @export var player : CharacterBody3D
-@export var SPEED = 3.0
-const JUMP_VELOCITY = 4.5
-@export var health = 100
+@export var SPEED = 1.0
+@export var health = 200
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	#damage code
 	if health <= 0:
 		#print("death")
-		GlobalVariables.goldamt += 20
+		GlobalVariables.goldamt += 40
 		queue_free()
 		
 	move_and_slide()

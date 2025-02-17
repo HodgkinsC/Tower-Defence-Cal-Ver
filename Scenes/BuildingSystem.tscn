@@ -16,6 +16,7 @@ font_size = 20
 font_color = Color(0.912289, 0.912289, 0.912289, 1)
 
 [node name="Building System" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -26,7 +27,26 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_564lj")
 
+[node name="Rock" type="RichTextLabel" parent="."]
+process_mode = 3
+layout_mode = 2
+offset_left = -565.0
+offset_top = -638.0
+offset_right = -265.0
+offset_bottom = -613.0
+text = "TEMP ROCK AMOUNT: "
+
+[node name="Wood" type="RichTextLabel" parent="."]
+process_mode = 3
+layout_mode = 2
+offset_left = -565.0
+offset_top = -618.0
+offset_right = -265.0
+offset_bottom = -593.0
+text = "TEMP WOOD AMOUNT: "
+
 [node name="SlotSelect" parent="." instance=ExtResource("1_jkvnc")]
+process_mode = 3
 modulate = Color(1, 1, 0, 1)
 self_modulate = Color(0.883333, 1, 0, 1)
 layout_mode = 2
@@ -44,6 +64,7 @@ offset_bottom = 69.0
 texture = ExtResource("3_f3nst")
 
 [node name="Hotbar" type="HBoxContainer" parent="."]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -77,6 +98,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="BuildingUI" type="ColorRect" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = -300.0
 offset_top = -580.0
@@ -85,6 +107,7 @@ offset_bottom = -130.0
 color = Color(0.116127, 0.116127, 0.116127, 0.815686)
 
 [node name="GridContainer" type="GridContainer" parent="BuildingUI"]
+process_mode = 3
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -94,27 +117,13 @@ theme_override_constants/h_separation = 74
 theme_override_constants/v_separation = 80
 columns = 8
 
-[node name="Rock" type="RichTextLabel" parent="BuildingUI"]
-layout_mode = 2
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 310.0
-offset_bottom = 35.0
-text = "TEMP ROCK AMOUNT: "
-
-[node name="Wood" type="RichTextLabel" parent="BuildingUI"]
-layout_mode = 2
-offset_left = 10.0
-offset_top = 30.0
-offset_right = 310.0
-offset_bottom = 55.0
-text = "TEMP WOOD AMOUNT: "
-
 [node name="OthersidePauseMenu" type="Sprite2D" parent="BuildingUI"]
+process_mode = 3
 position = Vector2(300, 270)
 texture = ExtResource("7_uw3ym")
 
 [node name="Button" type="Button" parent="BuildingUI"]
+process_mode = 3
 layout_mode = 0
 offset_left = 190.0
 offset_top = 370.0
@@ -126,7 +135,21 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_2qlgs")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2qlgs")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2qlgs")
 
+[node name="Button2" type="Button" parent="BuildingUI"]
+process_mode = 3
+layout_mode = 0
+offset_left = 140.0
+offset_top = 230.0
+offset_right = 460.0
+offset_bottom = 280.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2qlgs")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2qlgs")
+
 [node name="MineInfo" type="ColorRect" parent="."]
+process_mode = 3
 visible = false
 layout_mode = 0
 offset_left = -100.0
@@ -137,6 +160,7 @@ color = Color(0.193154, 0.193154, 0.193154, 1)
 script = ExtResource("7_b7e3q")
 
 [node name="ItemName" type="Label" parent="MineInfo"]
+process_mode = 3
 layout_mode = 0
 offset_left = 10.185
 offset_top = 0.69
@@ -147,6 +171,7 @@ label_settings = SubResource("LabelSettings_13bfl")
 horizontal_alignment = 1
 
 [node name="HealthRectBG" type="ColorRect" parent="MineInfo"]
+process_mode = 3
 layout_mode = 0
 offset_left = 25.0
 offset_top = 30.0
@@ -155,6 +180,7 @@ offset_bottom = 44.9999
 color = Color(1, 0, 0, 1)
 
 [node name="HealthRect" type="ColorRect" parent="MineInfo"]
+process_mode = 3
 layout_mode = 0
 offset_left = 25.0
 offset_top = 30.0
@@ -163,5 +189,6 @@ offset_bottom = 45.0
 color = Color(0.0333333, 1, 0, 1)
 
 [connection signal="pressed" from="BuildingUI/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BuildingUI/Button2" to="." method="_on_button_2_pressed"]
 
 [editable path="SlotSelect"]

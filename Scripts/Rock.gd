@@ -6,8 +6,8 @@ extends StaticBody3D
 @onready var groundcast = $GroundCast
 
 func _ready() -> void:
-	GlobalVariables.rockcount += 1
-	print(GlobalVariables.rockcount)
+	GlobalVariables.treecount += 1
+	print(GlobalVariables.treecount)
 
 func _process(delta: float) -> void:
 	groundcast.force_raycast_update()
