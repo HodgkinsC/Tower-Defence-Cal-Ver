@@ -1,7 +1,6 @@
 extends Node3D
 
 
-
 var currentEnemy = {}
 var turretPos
 @export var shootTimeoutTime = 1

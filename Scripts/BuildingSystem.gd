@@ -3,49 +3,51 @@ extends Control
 var selectedSlot = GlobalVariables.itemslot
 
 func _process(delta):
-	
-	selectedslot()
-	GlobalVariables.itemslot = selectedSlot
-	viewmodel()
-	$"../Head/Camera3D/BuildCast".force_raycast_update()
-	var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
-	$Preview.global_position = collPoint
-	var coll = $"../Head/Camera3D/BuildCast".get_collider()
-	if coll != null:
-		$Preview.visible = true
-		iteminfo(coll)
-		if Input.is_action_just_pressed("click"):
-			if selectedSlot == 1:
-				if coll.is_in_group("Mineable"):
-					coll.health -= 1
-					if coll.is_in_group("Rock"): GlobalVariables.rockamt += 10
-					if coll.is_in_group("Tree"): GlobalVariables.woodamt += 10
-					if coll.is_in_group("Factory"): GlobalVariables.factamt += 10
-					if coll.is_in_group("Tower"): GlobalVariables.toweamt += 10
-					if coll.health <= 0:
-						coll.queue_free()
-			if selectedSlot == 2:
-				if GlobalVariables.woodamt >= 50 and GlobalVariables.rockamt >= 50:
-					var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
-					add_child(factoryinst)
-					factoryinst.global_position = collPoint
-					GlobalVariables.woodamt = GlobalVariables.woodamt - 50
-					
-				else:
-					print("broke")
-			if selectedSlot == 3:
-				if GlobalVariables.rockamt >=50 and GlobalVariables.rockamt >=50:
-					var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
-					add_child(towerinst)
-					towerinst.global_position = collPoint
-					GlobalVariables.rockamt =GlobalVariables.rockamt-50
-					GlobalVariables.woodamt = GlobalVariables.woodamt - 50
-				else:
-					print("broke")
+	if $"..".plrid == GlobalVariables.activeplr:
+		self.visible = true
+		selectedslot()
+		GlobalVariables.itemslot = selectedSlot
+		viewmodel()
+		$"../Head/Camera3D/BuildCast".force_raycast_update()
+		var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
+		$Preview.global_position = collPoint
+		var coll = $"../Head/Camera3D/BuildCast".get_collider()
+		if coll != null:
+			$Preview.visible = true
+			iteminfo(coll)
+			if Input.is_action_just_pressed("click"):
+				if selectedSlot == 1:
+					if coll.is_in_group("Mineable"):
+						coll.health -= 1
+						if coll.is_in_group("Rock"): GlobalVariables.rockamt += 10
+						if coll.is_in_group("Tree"): GlobalVariables.woodamt += 10
+						if coll.is_in_group("Factory"): GlobalVariables.factamt += 10
+						if coll.is_in_group("Tower"): GlobalVariables.toweamt += 10
+						if coll.health <= 0:
+							coll.queue_free()
+				if selectedSlot == 2:
+					if GlobalVariables.woodamt >= 50 and GlobalVariables.rockamt >= 50:
+						var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
+						add_child(factoryinst)
+						factoryinst.global_position = collPoint
+						GlobalVariables.woodamt = GlobalVariables.woodamt - 50
+						
+					else:
+						print("broke")
+				if selectedSlot == 3:
+					if GlobalVariables.rockamt >=50 and GlobalVariables.rockamt >=50:
+						var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
+						add_child(towerinst)
+						towerinst.global_position = collPoint
+						GlobalVariables.rockamt =GlobalVariables.rockamt-50
+						GlobalVariables.woodamt = GlobalVariables.woodamt - 50
+					else:
+						print("broke")
+		else:
+			$MineInfo.visible = false
+			$Preview.visible = false
 	else:
-		$MineInfo.visible = false
-		$Preview.visible = false
-	
+		self.visible = false
 	$BuildingUI/Rock.text = "TEMP ROCK AMOUNT: " + str(GlobalVariables.rockamt)
 	$BuildingUI/Wood.text = "TEMP WOOD AMOUNT: " + str(GlobalVariables.woodamt)
 
@@ -80,9 +82,9 @@ func viewmodel():
 		$"../Head/Camera3D/Tower".visible = false
 
 func selectedslot():
-	if Input.is_action_just_pressed("MWU"):
+	if Input.is_action_just_pressed("MWU") and selectedSlot >= 2:
 		selectedSlot -= 1
-	if Input.is_action_just_pressed("MWD"):
+	if Input.is_action_just_pressed("MWD") and selectedSlot <= 4:
 		selectedSlot += 1
 	if Input.is_action_just_pressed("1"):
 		selectedSlot = 1
