@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciwn1cded6d4v"]
 
-[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_ce787"]
+[ext_resource type="Script" path="res://Scripts/Tree.gd" id="1_bagn3"]
 [ext_resource type="PackedScene" uid="uid://dsdr6c55fquqt" path="res://Assets/Models/Tree.glb" id="2_kos88"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tlgbb"]
@@ -10,9 +10,8 @@ size = Vector3(0.36377, 2.64319, 0.362152)
 size = Vector3(2.95801, 1.13965, 2.6069)
 
 [node name="Tree" type="StaticBody3D" groups=["Mineable", "Tree"]]
-script = ExtResource("1_ce787")
+script = ExtResource("1_bagn3")
 health = 10
-maxhp = 10
 
 [node name="Tree" parent="." instance=ExtResource("2_kos88")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -24,3 +23,6 @@ shape = SubResource("BoxShape3D_tlgbb")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294434, 3.02715, -0.00732803)
 shape = SubResource("BoxShape3D_o3h14")
+
+[node name="GroundCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, -100, 0)

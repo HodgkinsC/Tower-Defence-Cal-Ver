@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmajyfwo8xslw"]
+
+[ext_resource type="Script" path="res://Scripts/turret.gd" id="1_lhuhx"]
+[ext_resource type="PackedScene" uid="uid://b5q868wdf0m08" path="res://Assets/Models/MagicTower.glb" id="2_q65mv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_acune"]
+size = Vector3(0.939819, 3.28259, 0.927124)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g47vo"]
+radius = 10.0
+
+[node name="turret" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5886, 0)
+script = ExtResource("1_lhuhx")
+damageDelt = 10
+
+[node name="Turret collisions - StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Turret collisions - StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.475769, 0.00164795)
+shape = SubResource("BoxShape3D_acune")
+
+[node name="damage area - Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="damage area - Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("SphereShape3D_g47vo")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MagicTower" parent="." instance=ExtResource("2_q65mv")]
+
+[connection signal="body_entered" from="damage area - Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="damage area - Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
