@@ -10,6 +10,7 @@ func _ready() -> void:
 	print(GlobalVariables.rockcount)
 
 func _process(delta: float) -> void:
-	groundcast.force_raycast_update()
-	var collpoint = groundcast.get_collision_point()
-	self.global_position = collpoint
+	if groundcast != null:
+		groundcast.force_raycast_update()
+		var collpoint = groundcast.get_collision_point()
+		self.global_position = collpoint

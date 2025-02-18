@@ -26,7 +26,7 @@ func _process(delta):
 						if coll.health <= 0:
 							coll.queue_free()
 				if selectedSlot == 2:
-					if GlobalVariables.woodamt >= 50 and GlobalVariables.rockamt >= 50:
+					if GlobalVariables.woodamt >= 50:
 						var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
 						add_child(factoryinst)
 						factoryinst.global_position = collPoint
@@ -35,7 +35,7 @@ func _process(delta):
 					else:
 						print("broke")
 				if selectedSlot == 3:
-					if GlobalVariables.rockamt >=50 and GlobalVariables.rockamt >=50:
+					if GlobalVariables.rockamt >=50 and GlobalVariables.woodamt >=50:
 						var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
 						add_child(towerinst)
 						towerinst.global_position = collPoint

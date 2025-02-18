@@ -157,12 +157,12 @@ plrid = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76438, 0, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Map"]
-transform = Transform3D(-0.239422, 0, -13.6973, 0, 0.819219, 0, 11.9976, 0, -0.27334, -5.9653, 0.0562734, -3.52386)
+transform = Transform3D(-0.239422, 0, -13.6973, 0, 0.819219, 0, 11.9976, 0, -0.27334, -5.9653, -0.495018, -3.52386)
 mesh = SubResource("ArrayMesh_1ko0d")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map"]
-transform = Transform3D(-0.239422, 0, -13.6973, 0, 0.819219, 0, 11.9976, 0, -0.27334, -5.9653, 0.0562734, -3.52386)
+transform = Transform3D(-0.239422, 0, -13.6973, 0, 0.819219, 0, 11.9976, 0, -0.27334, -5.9653, -0.495018, -3.52386)
 shape = SubResource("ConcavePolygonShape3D_ljgk1")
 
 [node name="Plane_009" type="MeshInstance3D" parent="Map"]

@@ -17,7 +17,7 @@ damageDelt = 50
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00600448, 0.942613, -0.0143659)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.943, 0)
 shape = SubResource("BoxShape3D_vcte0")
 
 [node name="MagicTower" parent="." instance=ExtResource("1_c1hob")]
@@ -29,7 +29,6 @@ autostart = true
 [node name="damage area - Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="damage area - Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("SphereShape3D_sdabi")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

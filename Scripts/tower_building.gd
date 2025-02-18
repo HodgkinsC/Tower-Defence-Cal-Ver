@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var health : int = 5
+@export var maxhp : int = 5
 
 var currentEnemy = {}
 var turretPos
@@ -30,11 +32,12 @@ func findCloseset():
 		elif lowestDist[0] >= dist:
 			lowestDist = [dist,body]
 		#print(lowestDist)
+		turretPos = global_position
 
 
 func _on_timer_timeout() -> void:
 	if !(lowestDist[0] == null):
-		Draw3d.line(lowestDist[1].global_position+Vector3(0,.8,0),turretPos+Vector3(0,1.1,0),Color(128,0,128),0.1)
+		Draw3d.line(lowestDist[1].global_position+Vector3(0,.8,0),turretPos+Vector3(0,1.2,0),Color(128,0,128),1)
 		lowestDist[1].take_damage(damageDelt)
 
 

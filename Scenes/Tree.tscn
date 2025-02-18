@@ -27,4 +27,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.294434, 3.02715, -0.0073280
 shape = SubResource("BoxShape3D_o3h14")
 
 [node name="GroundCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 target_position = Vector3(0, -100, 0)

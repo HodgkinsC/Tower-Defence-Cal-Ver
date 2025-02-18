@@ -12,6 +12,7 @@ func _physics_process(delta: float) -> void:
 	
 	#rotate towards player and move chat gpt made this don't ask me to fix it also don't fucking mess with it, it will break
 	#I messed with it and it didn't break
+	# well it broke a couple times then I fixed it
 	var playerpos = player.global_position; playerpos.y = self.position.y
 	look_at(playerpos)
 	var direction = (player.global_transform.origin - global_transform.origin).normalized()
