@@ -34,7 +34,7 @@ offset_left = -565.0
 offset_top = -638.0
 offset_right = -265.0
 offset_bottom = -613.0
-text = "TEMP ROCK AMOUNT: "
+text = "Rock: "
 
 [node name="Wood" type="RichTextLabel" parent="."]
 process_mode = 3
@@ -43,7 +43,16 @@ offset_left = -565.0
 offset_top = -618.0
 offset_right = -265.0
 offset_bottom = -593.0
-text = "TEMP WOOD AMOUNT: "
+text = "Wood: "
+
+[node name="Golden Rock" type="RichTextLabel" parent="."]
+process_mode = 3
+layout_mode = 2
+offset_left = -565.0
+offset_top = -598.0
+offset_right = -265.0
+offset_bottom = -573.0
+text = "Gold: "
 
 [node name="SlotSelect" parent="." instance=ExtResource("1_jkvnc")]
 process_mode = 3

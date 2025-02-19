@@ -12,6 +12,8 @@ func _process(delta):
 		var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
 		$Preview.global_position = collPoint
 		var coll = $"../Head/Camera3D/BuildCast".get_collider()
+		print(coll)
+		print(collPoint)
 		if coll != null:
 			$Preview.visible = true
 			iteminfo(coll)
@@ -21,9 +23,9 @@ func _process(delta):
 						coll.health -= 1
 						if coll.is_in_group("Rock"): GlobalVariables.rockamt += 10
 						if coll.is_in_group("Tree"): GlobalVariables.woodamt += 10
-						if coll.is_in_group("Factory"): GlobalVariables.factamt += 10
-						if coll.is_in_group("Tower"): GlobalVariables.toweamt += 10
 						if coll.health <= 0:
+							if coll.is_in_group("Factory"): GlobalVariables.woodamt += 50
+							if coll.is_in_group("Tower"): GlobalVariables.rockamt += 50; GlobalVariables.woodamt += 50
 							coll.queue_free()
 				if selectedSlot == 2:
 					if GlobalVariables.woodamt >= 50:
@@ -48,8 +50,9 @@ func _process(delta):
 			$Preview.visible = false
 	else:
 		self.visible = false
-	$Rock.text = "TEMP ROCK AMOUNT: " + str(GlobalVariables.rockamt)
-	$Wood.text = "TEMP WOOD AMOUNT: " + str(GlobalVariables.woodamt)
+	$Rock.text = "Rock: " + str(GlobalVariables.rockamt)
+	$Wood.text = "Wood: " + str(GlobalVariables.woodamt)
+	$"Golden Rock".text = "Gold: " + str(GlobalVariables.goldamt)
 
 func iteminfo(coll):
 	if coll.is_in_group("Mineable"):

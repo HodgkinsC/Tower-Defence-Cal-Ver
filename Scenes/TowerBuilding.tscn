@@ -3,22 +3,17 @@
 [ext_resource type="Script" path="res://Scripts/tower_building.gd" id="1_2ym5h"]
 [ext_resource type="PackedScene" uid="uid://b5q868wdf0m08" path="res://Assets/Models/MagicTower.glb" id="1_c1hob"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vcte0"]
-size = Vector3(1.00783, 1.90991, 1.02953)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_sdabi"]
 radius = 10.0
 
-[node name="TowerBuilding" type="Node3D" groups=["Building", "Mineable", "Tower"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vcte0"]
+size = Vector3(1.00783, 1.90991, 1.02953)
+
+[node name="TowerBuilding" type="StaticBody3D" groups=["Building", "Mineable", "Tower"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_mask = 3
 script = ExtResource("1_2ym5h")
 damageDelt = 50
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.943, 0)
-shape = SubResource("BoxShape3D_vcte0")
 
 [node name="MagicTower" parent="." instance=ExtResource("1_c1hob")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.797917, 0)
@@ -27,9 +22,15 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.797917, 0)
 autostart = true
 
 [node name="damage area - Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="damage area - Area3D"]
 shape = SubResource("SphereShape3D_sdabi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.943, 0)
+shape = SubResource("BoxShape3D_vcte0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="damage area - Area3D" to="." method="_on_damage_area__area_3d_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://luvutvhgsxyd"]
 
+[ext_resource type="Script" path="res://Scripts/Factory.gd" id="1_cl8gj"]
 [ext_resource type="PackedScene" uid="uid://c7ewjymmc5hvp" path="res://Assets/Models/Factory.glb" id="1_uve5k"]
-[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_xaf8m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vcte0"]
 size = Vector3(2.01422, 1.58447, 1.47064)
@@ -9,7 +9,7 @@ size = Vector3(2.01422, 1.58447, 1.47064)
 [node name="FactoryBuilding" type="StaticBody3D" groups=["Building", "Factory", "Mineable"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 input_ray_pickable = false
-script = ExtResource("1_xaf8m")
+script = ExtResource("1_cl8gj")
 
 [node name="Factory" parent="." instance=ExtResource("1_uve5k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, -0.624343, 0.442)
@@ -17,3 +17,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, -0.624343, 0.442)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0187073, 0.779893, 0.00186157)
 shape = SubResource("BoxShape3D_vcte0")
+
+[node name="MONEY" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="MONEY" to="." method="_on_money_timeout"]

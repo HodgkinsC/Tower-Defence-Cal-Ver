@@ -11,6 +11,8 @@ radius = 0.292773
 height = 1.42958
 
 [node name="ZombieTank" type="CharacterBody3D" groups=["enemies", "enemy"]]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_kf0ud")
 
 [node name="ArmedTank" parent="." instance=ExtResource("1_6kyll")]
