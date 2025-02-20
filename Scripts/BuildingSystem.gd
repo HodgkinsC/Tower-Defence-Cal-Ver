@@ -28,23 +28,30 @@ func _process(delta):
 							if coll.is_in_group("Tower"): GlobalVariables.rockamt += 50; GlobalVariables.woodamt += 50
 							coll.queue_free()
 				if selectedSlot == 2:
-					if GlobalVariables.woodamt >= 50:
-						var factoryinst = preload("res://Scenes/FactoryBuilding.tscn").instantiate()
-						add_child(factoryinst)
-						factoryinst.global_position = collPoint
-						GlobalVariables.woodamt = GlobalVariables.woodamt - 50
-						
-					else:
-						print("broke")
-				if selectedSlot == 3:
 					if GlobalVariables.rockamt >=50 and GlobalVariables.woodamt >=50:
 						var towerinst = preload("res://Scenes/TowerBuilding.tscn").instantiate()
 						add_child(towerinst)
 						towerinst.global_position = collPoint
-						GlobalVariables.rockamt =GlobalVariables.rockamt-50
+						GlobalVariables.rockamt = GlobalVariables.rockamt - 50
 						GlobalVariables.woodamt = GlobalVariables.woodamt - 50
-					else:
-						print("broke")
+				if selectedSlot == 3:
+					if GlobalVariables.woodamt >= 50:
+						var factoryinst = preload("res://Scenes/FactoryBuildingG.tscn").instantiate()
+						add_child(factoryinst)
+						factoryinst.global_position = collPoint
+						GlobalVariables.woodamt = GlobalVariables.woodamt - 50
+				if selectedSlot == 4:
+					if GlobalVariables.woodamt >= 50:
+						var factoryinst = preload("res://Scenes/FactoryBuildingR.tscn").instantiate()
+						add_child(factoryinst)
+						factoryinst.global_position = collPoint
+						GlobalVariables.woodamt = GlobalVariables.rockamt - 50
+				if selectedSlot == 5:
+					if GlobalVariables.woodamt >= 50:
+						var factoryinst = preload("res://Scenes/FactoryBuildingW.tscn").instantiate()
+						add_child(factoryinst)
+						factoryinst.global_position = collPoint
+						GlobalVariables.woodamt = GlobalVariables.woodamt - 50
 		else:
 			$MineInfo.visible = false
 			$Preview.visible = false
@@ -76,13 +83,13 @@ func viewmodel():
 	else:
 		$"../Head/Camera3D/Pickaxe".visible = false
 	if selectedSlot == 2:
-		$"../Head/Camera3D/Factory".visible = true
-	else:
-		$"../Head/Camera3D/Factory".visible = false
-	if selectedSlot == 3:
 		$"../Head/Camera3D/Tower".visible = true
 	else:
 		$"../Head/Camera3D/Tower".visible = false
+	if selectedSlot == 3 or selectedSlot == 4 or selectedSlot == 5:
+		$"../Head/Camera3D/Factory".visible = true
+	else:
+		$"../Head/Camera3D/Factory".visible = false
 
 func selectedslot():
 	if Input.is_action_just_pressed("esc"): GlobalVariables.moustog = !GlobalVariables.moustog

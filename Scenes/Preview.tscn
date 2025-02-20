@@ -303,10 +303,7 @@ albedo_color = Color(0.905882, 0.0823529, 0.905882, 0.737255)
 metallic = 0.58
 roughness = 0.5
 
-[node name="Preview" type="StaticBody3D"]
-collision_layer = 0
-collision_mask = 0
-input_ray_pickable = false
+[node name="Preview" type="Node3D"]
 script = ExtResource("1_mfenj")
 
 [node name="FactoryBuilding" type="Node3D" parent="."]

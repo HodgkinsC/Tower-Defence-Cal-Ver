@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd0h0tihr1ey5"]
+[gd_scene load_steps=12 format=3 uid="uid://dd0h0tihr1ey5"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingSystem.gd" id="1_564lj"]
 [ext_resource type="PackedScene" uid="uid://cds8u7fxi5whd" path="res://Scenes/InvSlot.tscn" id="1_jkvnc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lqbb6bxi6wip" path="res://Assets/Textures/TowerIcon.png" id="6_c6xau"]
 [ext_resource type="Script" path="res://Scripts/MineInfo.gd" id="7_b7e3q"]
 [ext_resource type="Texture2D" uid="uid://sl0r50jcyggq" path="res://Assets/Textures/OTHERSIDE pause menu.png" id="7_uw3ym"]
+[ext_resource type="Texture2D" uid="uid://dqe6baeddr6ik" path="res://icon.svg" id="9_aptd1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qlgs"]
 
@@ -196,6 +197,11 @@ offset_top = 30.0
 offset_right = 175.0
 offset_bottom = 45.0
 color = Color(0.0333333, 1, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -324)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_aptd1")
 
 [connection signal="pressed" from="BuildingUI/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BuildingUI/Button2" to="." method="_on_button_2_pressed"]

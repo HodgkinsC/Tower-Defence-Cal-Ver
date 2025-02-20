@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GlobalVariables="*res://Scripts/global_variables.gd"
 Draw3d="*res://Scripts/Draw3D.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="hold on wait"
