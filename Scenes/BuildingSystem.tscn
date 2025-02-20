@@ -95,17 +95,19 @@ Icon = ExtResource("4_00pq7")
 
 [node name="Slot2" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
-Icon = ExtResource("5_pikro")
+Icon = ExtResource("6_c6xau")
 
 [node name="Slot3" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
-Icon = ExtResource("6_c6xau")
+Icon = ExtResource("5_pikro")
 
 [node name="Slot4" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
+Icon = ExtResource("5_pikro")
 
 [node name="Slot5" parent="Hotbar" instance=ExtResource("1_jkvnc")]
 layout_mode = 2
+Icon = ExtResource("5_pikro")
 
 [node name="BuildingUI" type="ColorRect" parent="."]
 process_mode = 3

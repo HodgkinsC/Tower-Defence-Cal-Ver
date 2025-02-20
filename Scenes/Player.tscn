@@ -57,3 +57,4 @@ hit_back_faces = false
 
 [node name="Preview" parent="Building System" instance=ExtResource("2_nlttb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false

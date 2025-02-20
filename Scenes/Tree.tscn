@@ -10,6 +10,7 @@ size = Vector3(0.36377, 2.64319, 0.362152)
 size = Vector3(2.95801, 1.13965, 2.6069)
 
 [node name="Tree" type="StaticBody3D" groups=["Mineable", "Tree"]]
+process_mode = 3
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.0318942, 0)
 script = ExtResource("1_bagn3")
 health = 10

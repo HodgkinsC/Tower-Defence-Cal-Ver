@@ -12,8 +12,6 @@ func _process(delta):
 		var collPoint = $"../Head/Camera3D/BuildCast".get_collision_point()
 		$Preview.global_position = collPoint
 		var coll = $"../Head/Camera3D/BuildCast".get_collider()
-		print(coll)
-		print(collPoint)
 		if coll != null:
 			$Preview.visible = true
 			iteminfo(coll)
